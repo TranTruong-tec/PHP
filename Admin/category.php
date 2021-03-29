@@ -1,3 +1,11 @@
+<?php
+ob_start(); //bắt lỗi
+// session_start();
+include_once './ketnoi.php';
+	$sql = "SELECT * FROM theloai ORDER BY ID ASC";
+	$query = mysqli_query($conn, $sql);
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -72,55 +80,24 @@
 					                </tr>
 				              	</thead>
 				              	<tbody>
-								<tr>
-									<td>iPhone</td>
+								<tr>	
+								<?php
+										while ($colum = mysqli_fetch_array($query)) {
+											# code...
+										
+									?> 
+									<td><?php  echo $colum['TenLoai']  ?><br></td>							
 									<td>
 			                    		<a href="#" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Sửa</a>
 			                    		<a href="#" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Xóa</a>
 			                  		</td>
-			                  	</tr>
-			                  	<tr>
-									<td>Samsung</td>
-									<td>
-			                    		<a href="#" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Sửa</a>
-			                    		<a href="#" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Xóa</a>
-			                  		</td>
-			                  	</tr> 
-			                  	<tr>
-									<td>Nokia</td>
-									<td>
-			                    		<a href="#" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Sửa</a>
-			                    		<a href="#" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Xóa</a>
-			                  		</td>
-			                  	</tr> 
-			                  	<tr>
-									<td>HTC</td>
-									<td>
-			                    		<a href="#" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Sửa</a>
-			                    		<a href="#" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Xóa</a>
-			                  		</td>
-			                  	</tr>
-			                  	<tr>
-									<td>LG</td>
-									<td>
-			                    		<a href="#" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Sửa</a>
-			                    		<a href="#" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Xóa</a>
-			                  		</td>
-			                  	</tr>
-			                  	<tr>
-									<td>Sony</td>
-									<td>
-			                    		<a href="#" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Sửa</a>
-			                    		<a href="#" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Xóa</a>
-			                  		</td>
-			                  	</tr>
-			                  	<tr>
-									<td>Motorola</td>
-									<td>
-			                    		<a href="#" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Sửa</a>
-			                    		<a href="#" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Xóa</a>
-			                  		</td>
-			                  	</tr> 
+								</tr>
+   
+									<?php
+										}
+									?>
+			                  	
+			                  	
 				                </tbody>
 				            </table>
 						</div>

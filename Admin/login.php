@@ -1,3 +1,27 @@
+<?php
+ob_start(); //bắt lỗi
+session_start();
+include_once './ketnoi.php';
+
+if(isset($_POST["submit"])){
+	$tenTK = $_POST["Email"];
+	$mk = $_POST["MatKhau"];
+	if(isset($tenTK)&&isset($mk)){
+		$sql = "SELECT * FROM tbl_admin where TenTK ='$Email' and MatKhau = '$mk'";
+		$query = mysqli_query($conn, $sql);
+		$row = mysql_num_rows($query);
+		if($row>0){
+			$_SESSION["TenTK"] = $Email;
+			$_SESSION["MatKhau"] = $mk;
+			header('location:index.php');
+		}
+		else {
+			echo '<center class ="alert alert-danger>Tài khoản hoặc mật mẩu không đúng</center>';
+		}
+	}
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,17 +50,17 @@
 					<form role="form">
 						<fieldset>
 							<div class="form-group">
-								<input class="form-control" placeholder="E-mail" name="email" type="email" autofocus="">
+								<input class="form-control" placeholder="E-mail" name="Email" type="email" autofocus="">
 							</div>
 							<div class="form-group">
-								<input class="form-control" placeholder="Password" name="password" type="password" value="">
+								<input class="form-control" placeholder="Password" name="mk" type="password" value="">
 							</div>
 							<div class="checkbox">
 								<label>
 									<input name="remember" type="checkbox" value="Remember Me">Remember Me
 								</label>
 							</div>
-							<a href="index.html" class="btn btn-primary">Login</a>
+							<input type="submit" value = "đăng nhập">
 						</fieldset>
 					</form>
 				</div>

@@ -53,7 +53,7 @@
 					<div class="panel-body">
 						<div class="bootstrap-table">
 							<div class="table-responsive">
-								<a href="#" class="btn btn-primary">Thêm sản phẩm</a>
+								<a href="addproduct" class="btn btn-primary">Thêm sản phẩm</a>
 								<table class="table table-bordered" style="margin-top:20px;">				
 									<thead>
 										<tr class="bg-primary">
@@ -140,7 +140,7 @@
 											</td>
 											<td>iPhone</td>
 											<td>
-												<a href="#" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i> Sửa</a>
+												<a href="editproduct" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i> Sửa</a>
 												<a href="#" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</a>
 											</td>
 										</tr>
