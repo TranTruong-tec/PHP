@@ -1,16 +1,17 @@
 <?php
-class home extends DModel{
+class homemodel extends DModel{
     public function __construct(){
         parent::__construct();
 
     }
     public function theloai(){
-        $sql = "SELECT * FROM theloai ORDER BY ID DESC";
+        $sql = "SELECT * FROM theloai ORDER BY ID ASC";
         $query = $this->db->query($sql);
-        $res = $query->fetchAll();
-        return $res;
+        $result = $query->fetchAll();
+        return $result;
     }
 }
+
 
 
 ?>

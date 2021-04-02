@@ -4,10 +4,9 @@ class sanpham extends DBControllers{
        parent::__construct();
 
     }
-    public function chitietsanpham($id,$sg){
+    public function chitietsanpham(){
         echo 'chi tiết sản phẩm';
-        echo $id;
-        echo $sg;
+        
     }
 }
 

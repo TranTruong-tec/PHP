@@ -11,9 +11,9 @@ class DModel{
         //  $pass = 'yourpassword';
         //  $db = new PDO($connect, $user,$pass);
 	}
-	public function theloai(){
+	// public function theloai(){
 
-	}
+	// }
 	
 }
 

@@ -1,8 +1,9 @@
 <?php
 class DBControllers{
 
+    protected $load = array(); // 1 mảnh chứa dữ liệu
     public function __construct(){
-        echo 'this is root';
+        $this->load = new load();
     }
 
     }

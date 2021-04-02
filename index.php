@@ -8,13 +8,14 @@
 </head>
 <body>
     
-    <?php 
-    include 'inc/header.php';
-    ?>
+   
     <h2>
         <?php
             include_once 'Helper/lib/Main.php';
             include_once 'Helper/lib/DBControllers.php';
+            include_once 'Helper/lib/database.php';
+            include_once 'Helper/lib/DModel.php';
+            include_once 'Helper/lib/load.php';
             
             // include_once 'Controllers/postController.php';
             // $main = new Main();
@@ -50,16 +51,10 @@
             }else {
                 include_once 'Controllers/index.php';
                 $index = new index();
-                $index->home();
-            }
-            
-            
-        
+                $index->homepage();
+            }          
         ?>
     </h2>
-    <?php 
-    include 'inc/footer.php';
-    ?>
     
 </body>
 </html>
