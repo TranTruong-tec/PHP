@@ -4,12 +4,7 @@ class homemodel extends DModel{
         parent::__construct();
 
     }
-    public function theloai(){
-        $sql = "SELECT * FROM theloai ORDER BY ID ASC";
-        $query = $this->db->query($sql);
-        $result = $query->fetchAll();
-        return $result;
-    }
+    
 }
 
 

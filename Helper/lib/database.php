@@ -9,6 +9,18 @@
 
         //  $db = new PDO($connect, $user,$pass);
      }
+     public function select($sql , $data = array(), $fetchstyle = PDO::FETCH_ASSOC){
+        // $sql = "SELECT * FROM $table";
+        $statement = $this->prepare($sql);
+        foreach ($data as $key => $value) {
+            $statement->bindParam($key,$value);
+            # code...
+        }
+        $statement->execute();
+        return $statement->fetchAll($fetchstyle);
+
+     }
+     
  }
 
 ?>

@@ -11,11 +11,11 @@ class index extends DBControllers{
         public function homepage(){
             
             $this->load->view('header');
-            $homemodel = $this->load->model('homemodel');
-            $data['theloai'] = $homemodel->theloai();
-            $this->load->view('home', $data);
+             
+            $this->load->view('home');
             $this->load->view('footer');
         }
+        
     
 }
 
