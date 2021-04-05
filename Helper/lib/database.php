@@ -20,6 +20,41 @@
         return $statement->fetchAll($fetchstyle);
 
      }
+     public function them($table,$data){
+
+		$keys = implode(",", array_keys($data));
+		$values = ":" .implode(", :",array_keys($data));
+
+		$sql = "INSERT INTO $table($keys) VALUES($values)";
+		$statement = $this->prepare($sql);
+
+		foreach($data as $key => $value){
+			$statement->bindValue(":$key",$value);
+		}
+
+		return $statement->execute();
+	}
+    public function capnhat($table,$data,$cond){
+		$updateKeys = NULL;
+
+		foreach($data as $key => $value){
+			$updateKeys .= "$key=:$key,";
+		}
+
+		$updateKeys = rtrim($updateKeys,",");
+
+		$sql = "UPDATE $table SET $updateKeys WHERE $cond";
+		$statement = $this->prepare($sql);
+
+		foreach($data as $key => $value){
+			$statement->bindValue(":$key",$value);
+		}
+		return $statement->execute();
+	}
+    public function xoa($table,$cond,$limit = 1){
+		$sql = "DELETE FROM $table WHERE $cond LIMIT $limit";
+		return $this->exec($sql);
+	}
      
  }
 

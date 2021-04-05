@@ -11,11 +11,15 @@
    
     <h2>
         <?php
-            include_once 'Helper/lib/Main.php';
-            include_once 'Helper/lib/DBControllers.php';
-            include_once 'Helper/lib/database.php';
-            include_once 'Helper/lib/DModel.php';
-            include_once 'Helper/lib/load.php';
+            spl_autoload_register(function($class){
+                include_once 'Helper/lib/'.$class.'.php';
+            });
+            include_once 'URL/URL.php';
+            
+            // include_once 'Helper/lib/DBControllers.php';
+            // include_once 'Helper/lib/database.php';
+            // include_once 'Helper/lib/DModel.php';
+            // include_once 'Helper/lib/load.php';
             
             // include_once 'Controllers/postController.php';
             // $main = new Main();

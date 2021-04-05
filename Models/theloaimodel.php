@@ -17,9 +17,18 @@ class theloaimodel extends DModel{
         // $statement = $this->db->prepare($sql); 
         $data = array(':id'=>$id);
         return $this->db->select($sql, $data);
-        
-
     }
+    public function inserttheloai($table_theloai, $data){
+        return $this->db->them($table_theloai,$data);
+    }
+    public function capnhattheloai($table_theloai,$data,$cond){
+        return $this->db->capnhat($table_theloai,$data,$cond);
+    }
+    public function xoatheloai($table_theloai,$cond){
+        return $this->db->xoa($table_theloai,$cond);
+    }
+    
+
 }
 
 
